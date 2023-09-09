@@ -16,7 +16,7 @@ func main() {
       "current_day": now.Format("Monday"),
       "utc_time": now.Format(time.RFC3339),
       "track": "backend",
-      "github_file_url": "https://github.com/E-kenny/stageOne/blob/main/file_name.ext",
+      "github_file_url": "https://github.com/E-kenny/stageOne/blob/main/stageOne/main.go",
       "github_repo_url": "https://github.com/E-kenny/stageOne",
       "status_code": http.StatusOK,
     })
