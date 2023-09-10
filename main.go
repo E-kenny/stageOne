@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-  now := time.Now()
+  now := time.Now().Add(time.Hour)
   r := gin.Default()
   r.GET("/api", func(c *gin.Context) {
     c.JSON(http.StatusOK, gin.H{
