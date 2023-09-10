@@ -10,7 +10,7 @@ import (
 func main() {
   now := time.Now()
   
-  tz, err := time.LoadLocation("Africa/Lagos")
+  tz, err := time.LoadLocation("UTC")
 	if err != nil { // Always check errors even if they should not happen.
 		panic(err)
 	}
