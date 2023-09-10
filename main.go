@@ -8,13 +8,19 @@ import (
 )
 
 func main() {
-  now := time.Now().Add(time.Hour)
+  now := time.Now()
+  
+  tz, err := time.LoadLocation("Africa/Lagos")
+	if err != nil { // Always check errors even if they should not happen.
+		panic(err)
+	}
+
   r := gin.Default()
   r.GET("/api", func(c *gin.Context) {
     c.JSON(http.StatusOK, gin.H{
       "slack_name": c.Query("slack_name"),
-      "current_day": now.Format("Monday"),
-      "utc_time": now.Format(time.RFC3339),
+      "current_day": now.In(tz).Format("Monday"),
+      "utc_time": now.In(tz).Format(time.RFC3339),
       "track": c.Query("track"),
       "github_file_url": "https://github.com/E-kenny/stageOne/blob/main/main.go",
       "github_repo_url": "https://github.com/E-kenny/stageOne",
